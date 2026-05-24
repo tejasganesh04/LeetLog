@@ -1,0 +1,30 @@
+{
+  "name": "leetlog-server",
+  "version": "1.0.0",
+  "description": "LeetLog backend API",
+  "main": "src/index.js",
+  "author": "Tejas",
+  "license": "ISC",
+  "scripts": {
+    "dev": "npx nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^5.22.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^7.5.0",
+    "googleapis": "^144.0.0",
+    "groq-sdk": "^0.9.1",
+    "helmet": "^8.0.0",
+    "json2csv": "^6.0.0-alpha.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

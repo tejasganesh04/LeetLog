@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+combined.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vite
+.vite/
+
+# Claude AI session data
+.claude/
+
+# Dev-only screenshots and scripts
+temporary screenshots/
+walkthrough-screenshots/
+screenshot.mjs
+screenshot-*.mjs
+walkthrough-*.mjs
+smoke-signup.mjs
+audit.mjs
+
+# Local help/docs
+help/

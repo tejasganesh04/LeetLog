@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────────────────
+   THE ENGINEER'S ALMANAC — design system
+   Cream paper · ink · burnt orange · serif display · mono numerals
+   ────────────────────────────────────────────────────────── */
+
+:root {
+  --paper:        #F5EFE3;       /* warm cream */
+  --paper-deep:   #EEE6D5;       /* slightly darker cream for surfaces */
+  --paper-soft:   #F9F4E8;       /* lighter cream for cards */
+  --ink:          #1A1410;       /* deep warm black */
+  --ink-soft:     #4A3F33;       /* warm gray-brown */
+  --ink-muted:    #7A6E5F;       /* dusty muted */
+  --ink-subtle:   #ADA08D;       /* faded */
+  --rule:         #D8CFBC;       /* warm rule line */
+  --rule-soft:    #E5DDC9;       /* lighter rule */
+  --accent:       #C9461C;       /* burnt orange — bolder than #F97316 */
+  --accent-deep:  #A8371A;       /* hover */
+  --accent-soft:  #F3E0D0;       /* very light burnt orange */
+  --ok:           #4A6B2A;       /* forest moss */
+  --warn:         #8B6914;       /* mustard */
+  --danger:       #8B2A1A;       /* iron oxide red */
+
+  --font-serif:   'Fraunces', Georgia, serif;
+  --font-sans:    'Bricolage Grotesque', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  html, body, #root {
+    background: var(--paper);
+  }
+  body {
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  input, textarea, select {
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--rule);
+    border-radius: 0;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 0;
+    width: 100%;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-bottom-color: var(--accent);
+  }
+  input::placeholder, textarea::placeholder { color: var(--ink-subtle); font-weight: 400; }
+  textarea { resize: vertical; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* Selection */
+  ::selection { background: var(--accent); color: var(--paper); }
+}
+
+@layer components {
+
+  /* ── Typography utilities ─────────────────────────────── */
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    color: var(--ink);
+  }
+  .display-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .serif {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-variation-settings: "opsz" 14;
+  }
+  .mono {
+    font-family: var(--font-mono);
+    font-feature-settings: "ss01", "ss02", "calt", "liga";
+    letter-spacing: -0.01em;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+  .label {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  /* ── Rules / dividers ─────────────────────────────────── */
+  .rule       { height: 1px; background: var(--rule); width: 100%; }
+  .rule-thick { height: 2px; background: var(--ink); width: 100%; }
+  .rule-soft  { height: 1px; background: var(--rule-soft); width: 100%; }
+
+  /* ── Buttons ──────────────────────────────────────────── */
+  .btn-ink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: -0.005em;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    position: relative;
+  }
+  .btn-ink:hover:not(:disabled) {
+    background: var(--accent);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 var(--ink);
+  }
+  .btn-ink:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 9px 16px;
+    border: 1.5px solid var(--ink);
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-ghost:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Link-style buttons */
+  .btn-link {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── Containers ───────────────────────────────────────── */
+  .page      { max-width: 920px;  margin: 0 auto; padding: 56px 32px; }
+  .page-wide { max-width: 1180px; margin: 0 auto; padding: 56px 32px; }
+
+  /* ── Badges (editorial style) ─────────────────────────── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 3px 0;
+  }
+  .badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .badge-easy::before     { background: var(--ok); }
+  .badge-medium::before   { background: var(--warn); }
+  .badge-hard::before     { background: var(--danger); }
+  .badge-easy             { color: var(--ok); }
+  .badge-medium           { color: var(--warn); }
+  .badge-hard             { color: var(--danger); }
+  .badge-accepted         { color: var(--ok); }
+  .badge-default          { color: var(--ink-muted); }
+  .badge-default::before  { background: var(--ink-muted); }
+
+  /* ── Inline alerts ────────────────────────────────────── */
+  .inline-alert {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-left: 2px solid;
+    background: transparent;
+  }
+  .inline-alert-error   { color: var(--danger); border-color: var(--danger); }
+  .inline-alert-success { color: var(--ok);     border-color: var(--ok); }
+  .inline-alert-info    { color: var(--accent); border-color: var(--accent); }
+
+  /* Cards (legacy fallback) */
+  .card {
+    background: var(--paper-soft);
+    border: 1px solid var(--rule);
+    padding: 24px;
+  }
+
+  /* Form groups */
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+}
+
+@layer utilities {
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid var(--rule);
+    border-top-color: var(--ink);
+    animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  .pulse { animation: pulse-dot 1.6s ease-in-out infinite; }
+
+  @keyframes gradient-flow {
+    0%   { background-position: 0% center; }
+    100% { background-position: 300% center; }
+  }
+
+  /* Subtle paper grain texture */
+  .paper-grain {
+    background-image:
+      radial-gradient(circle at 15% 25%, rgba(26,20,16,0.015) 0.5px, transparent 1px),
+      radial-gradient(circle at 75% 70%, rgba(26,20,16,0.012) 0.5px, transparent 1px),
+      radial-gradient(circle at 45% 85%, rgba(26,20,16,0.01) 0.5px, transparent 1px);
+    background-size: 120px 120px, 90px 90px, 140px 140px;
+  }
+}

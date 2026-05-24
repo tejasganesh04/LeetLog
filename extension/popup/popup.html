@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LeetLog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo-row">
+      <span class="logo">LeetLog</span>
+    </div>
+    <span id="status-dot" class="dot dot-idle"></span>
+  </div>
+
+  <!-- NOT SIGNED IN -->
+  <div id="section-login" class="section hidden">
+    <p class="login-subtitle">Sign in to begin logging.</p>
+
+    <div class="field">
+      <label class="field-label">Email</label>
+      <input id="input-email" type="email" placeholder="you@example.com" autocomplete="email" />
+    </div>
+    <div class="field">
+      <label class="field-label">Password</label>
+      <input id="input-password" type="password" placeholder="••••••••" autocomplete="current-password" />
+    </div>
+
+    <div class="btn-group">
+      <button id="btn-signin" class="btn btn-primary">Sign in &nbsp;↵</button>
+    </div>
+    <p id="login-msg" class="msg hidden"></p>
+
+    <p class="signup-hint">No account?<a id="link-signup" href="#">Begin a new log →</a></p>
+  </div>
+
+  <!-- SIGNED IN -->
+  <div id="section-main" class="hidden">
+
+    <!-- On a LeetCode problem -->
+    <div id="state-leetcode" class="hidden">
+      <div id="problem-bar" class="problem-bar">
+        <span id="problem-title">—</span>
+      </div>
+      <div class="section">
+        <div class="stats-row">
+          <div class="stat"><span id="stat-runs">0</span><small>Runs</small></div>
+          <div class="stat"><span id="stat-submits">0</span><small>Submits</small></div>
+          <div class="stat"><span id="stat-time">0m</span><small>Time</small></div>
+        </div>
+        <div class="btn-group">
+          <button id="btn-watch" class="btn btn-secondary">Start watching</button>
+          <button id="btn-save" class="btn btn-primary">Save to the log &nbsp;↵</button>
+        </div>
+        <p id="save-msg" class="msg hidden"></p>
+      </div>
+    </div>
+
+    <!-- Not on LeetCode -->
+    <div id="state-idle" class="section state-idle hidden">
+      <div class="idle-icon">a quiet page.</div>
+      <p class="idle-text">Open a LeetCode problem and the log will start watching automatically.</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER (signed in) -->
+  <div id="footer" class="footer hidden">
+    <span id="footer-email" class="footer-email"></span>
+    <a id="link-dashboard" href="#" class="footer-link">The Log ↗</a>
+    <a id="btn-signout" href="#" class="footer-link footer-danger">Sign out</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
