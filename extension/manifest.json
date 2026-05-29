@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "AI-powered LeetCode revision tracker. Capture your sessions, generate revision notes, sync to spreadsheets.",
   "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions": ["https://leetcode.com/*", "http://localhost:5000/*"],
+  "host_permissions": ["https://leetcode.com/*", "https://leetlog-tzb5j.ondigitalocean.app/*"],
   "action": {
     "default_popup": "popup/popup.html",
     "default_title": "LeetLog"
