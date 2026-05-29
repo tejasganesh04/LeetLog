@@ -1,5 +1,5 @@
-const BACKEND_URL = 'http://localhost:5000'; // TODO: set to production URL before deploying to Chrome Web Store
-const CLIENT_URL  = 'http://localhost:5173'; // TODO: set to production URL before deploying to Chrome Web Store
+const BACKEND_URL = 'https://leetlog-tzb5j.ondigitalocean.app';
+const CLIENT_URL  = 'https://leet-log-swart.vercel.app';
 
 const $ = (id) => document.getElementById(id);
 let watching = false;

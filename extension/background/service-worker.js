@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:5000'; // replace with production URL before deploy
+const BACKEND_URL = 'https://leetlog-tzb5j.ondigitalocean.app';
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === 'SAVE_REVISION') {
