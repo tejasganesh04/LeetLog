@@ -11,7 +11,7 @@ const app = express();
 app.use(helmet());
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || origin === ServerConfig.CLIENT_URL || origin.startsWith('chrome-extension://')) {
+    if (!origin || origin === ServerConfig.CLIENT_URL || origin.startsWith('chrome-extension://') || origin.startsWith('ms-browser-extension://')) {
       callback(null, true);
     } else {
       callback(null, false);
